@@ -25,12 +25,26 @@ const ctx = canvas.getContext("2d");
 // ctx.strokeStyle = "yellow";
 // ctx.strokeText("Hello World", 400, 200);
 
-// fillText
-ctx.font = "30px Arial";
-ctx.fillStyle = "purple";
-ctx.fillText("Hello World", 400, 50);
+// Paths
+// Triangle
+ctx.beginPath();
+ctx.moveTo(50, 50);
+ctx.lineTo(150, 50);
+ctx.lineTo(100, 200);
+// ctx.lineTo(50, 50);
+ctx.closePath();
+ctx.fillStyle = "coral";
+ctx.fill();
 
-// strokeText
-ctx.lineWidth = 1;
-ctx.strokeStyle = "yellow";
-ctx.strokeText("Hello World", 400, 200);
+ctx.beginPath();
+ctx.moveTo(200, 50);
+ctx.lineTo(150, 200);
+ctx.lineTo(250, 200);
+ctx.closePath();
+ctx.stroke();
+
+// Rectangle
+ctx.beginPath();
+ctx.rect(300, 50, 150, 100);
+ctx.fillStyle = "teal";
+ctx.fill();
