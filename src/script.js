@@ -48,3 +48,45 @@ const ctx = canvas.getContext("2d");
 // ctx.rect(300, 50, 150, 100);
 // ctx.fillStyle = "teal";
 // ctx.fill();
+
+// Animation-1
+const circleProps = {
+  x: 200,
+  y: 200,
+  size: 30,
+  xd: 5,
+  yd: 4,
+};
+
+function drawCircle() {
+  ctx.beginPath();
+  ctx.arc(circleProps.x, circleProps.y, circleProps.size, 0, Math.PI * 2);
+  ctx.fillStyle = "red";
+  ctx.fill();
+}
+
+function update() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  drawCircle();
+
+  circleProps.x += circleProps.xd;
+  circleProps.y += circleProps.yd;
+
+  if (
+    circleProps.x + circleProps.size > canvas.width ||
+    circleProps.x - circleProps.size < 0
+  ) {
+    circleProps.xd *= -1;
+  }
+
+  if (
+    circleProps.y + circleProps.size > canvas.height ||
+    circleProps.y - circleProps.size < 0
+  ) {
+    circleProps.yd *= -1;
+  }
+
+  requestAnimationFrame(update);
+}
+
+update();
